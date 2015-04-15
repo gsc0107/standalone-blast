@@ -1,5 +1,6 @@
 #!usr/bin/python 
 
+
 import sys, csv
 import subprocess
 import datetime, time
@@ -172,6 +173,9 @@ cmd_blast_org_II_org_I = "blastp \
 -out " 	+ subfolder_name + "/" + blast_table_II + " \
 -outfmt 6 -num_alignments 1 -evalue " + E_CUTOFF
  
+#subprocess.call("blastp -query proteins.FilteredModels1.fasta -db hs_embl_prot_db -out nv_hs_embl_table.csv -outfmt \"6 qseqid qlen sseqid slen qframe qstart qend sframe sstart send evalue bitscore pident nident length\" -num_alignments 1 -evalue 1e-05",shell=True)
+#subprocess.call("blastp -query Homo_sapiens.GRCh38.pep.abinitio.fa -db nv_prot_db -out hs_nv_embl_table.csv -outfmt \"6 qseqid qlen sseqid slen qframe qstart qend sframe sstart send evalue bitscore pident nident length\" -num_alignments 1 -evalue 1e-05",shell=True)
+
 shell_out = subprocess.call(cmd_blast_org_II_org_I, shell=True)
 #Wait for the process to complete
 if shell_out == 0:
